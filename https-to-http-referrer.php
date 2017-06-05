@@ -4,7 +4,7 @@
     Plugin URI: http://www.mooberrydreams.com/
     Description: Adds meta referrer to allow referral data to pass from HTTPS to HTTP sites
     Author: Mooberry Dreams
-    Version: 1.0
+    Version: 1.1
     Author URI: http://www.mooberrydreams.com/
 	Text Domain: https-to-http-referrer
 	Domain Page: /languages/
