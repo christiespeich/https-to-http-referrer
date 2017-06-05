@@ -58,5 +58,5 @@ $MyUpdateChecker = new PluginUpdateChecker_2_0 (
 add_action('wp_head', 'mbd_https_add_meta_tags');
 function mbd_https_add_meta_tags() {
 
-	echo '<meta name="referrer" content="always"/>';
+	echo '<meta name="referrer" content="origin-when-cross-origin"/>';
  }
