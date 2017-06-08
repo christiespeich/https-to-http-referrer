@@ -4,7 +4,7 @@
     Plugin URI: http://www.mooberrydreams.com/
     Description: Adds meta referrer to allow referral data to pass from HTTPS to HTTP sites
     Author: Mooberry Dreams
-    Version: 1.1
+    Version: 1.2
     Author URI: http://www.mooberrydreams.com/
 	Text Domain: https-to-http-referrer
 	Domain Page: /languages/
@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define('MBDHTTPREF_PLUGIN_DIR', plugin_dir_path( __FILE__ )); 
 define('MBDHTTPREF_PLUGIN_VERSION_KEY', 'mbdhttpref_version');
-define('MBDHTTPREF_PLUGIN_VERSION', '1.1');
+define('MBDHTTPREF_PLUGIN_VERSION', '1.2');
 
 	
 	
@@ -57,6 +57,13 @@ $MyUpdateChecker = new PluginUpdateChecker_2_0 (
 
 add_action('wp_head', 'mbd_https_add_meta_tags');
 function mbd_https_add_meta_tags() {
-
-	echo '<meta name="referrer" content="origin-when-cross-origin"/>';
+	global $is_safari, $is_iphone, $is_edge;
+	
+	if ( $is_safari || $is_iphone || $is_edge ) {
+		$content = 'always';
+	} else {
+		$content = 'origin-when-cross-origin';
+	}
+	echo '<meta name="referrer" content="' . $content . '" />';
+	
  }
